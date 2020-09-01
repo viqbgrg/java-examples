@@ -8,6 +8,5 @@
  */
 
 rootProject.name = 'java-examples'
-include 'shiro-examples'
 include 'java-demo'
 
