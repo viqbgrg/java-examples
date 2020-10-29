@@ -1,9 +1,7 @@
 package javademo;
 
-import org.junit.jupiter.api.Test;
 
 public class StringTest {
-    @Test
     void replaceTest() {
         String a = "ABCD";
         String b = a.toLowerCase();
