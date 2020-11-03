@@ -3,6 +3,7 @@ package javademo.reuse;
 public class B extends A {
 
     static {
+        String a = "!11";
         System.out.println("子类静态代码块");
     }
 
