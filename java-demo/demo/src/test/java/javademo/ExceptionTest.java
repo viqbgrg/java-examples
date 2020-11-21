@@ -4,6 +4,8 @@ import javademo.exception.AException;
 import javademo.exception.BException;
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 public class ExceptionTest {
     @Test
     void tryCatch() {
@@ -19,6 +21,15 @@ public class ExceptionTest {
             return;
         } finally {
             System.out.println("Hello World!");
+        }
+    }
+
+    @Test
+    void testDebug() {
+        Random random = new Random(1);
+        for (int i = 0; i < 100; i++) {
+            int i1 = random.nextInt(2);
+            int a = 2/i1;
         }
     }
 }
