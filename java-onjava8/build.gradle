@@ -12,19 +12,6 @@ repositories {
     mavenCentral()
 }
 
-//apply plugin: 'java'
-
-//sourceSets{
-//    test {
-//        java {
-//            srcDirs = ['src/main/java', 'src/test/java']
-//        }
-//        resources {
-//            srcDirs = ['src/main/resources', 'src/test/resources']
-//        }
-//    }
-//}
-
 subprojects{
     apply plugin: 'java'
     sourceSets {
