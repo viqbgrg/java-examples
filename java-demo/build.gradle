@@ -8,7 +8,6 @@ repositories {
 subprojects{
     apply plugin: 'java'
     dependencies {
-
         implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
         runtimeOnly 'org.junit.jupiter:junit-jupiter-engine'
         implementation 'org.assertj:assertj-core:3.19.0'

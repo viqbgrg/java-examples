@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author viqbg
  * 验证密码
+ * (?!.*\d).*  不能含有数字
  */
 public class RegexPasswordTest {
     /**
