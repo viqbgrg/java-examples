@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,10 @@ public class ListClazz {
     @Test
     void clazzListClassTest() {
         List<String> stringList = new ArrayList<>();
-        String s = stringList.getClass().toString();
-        ((ParameterizedType) stringList.getClass().getGenericSuperclass()).getActualTypeArguments();
-        log.info(s);
+        Class<? extends List> aClass = stringList.getClass();
+        String s = aClass.toString();
+        ParameterizedType genericSuperclass = (ParameterizedType) aClass.getGenericSuperclass();
+        Type[] actualTypeArguments = genericSuperclass.getActualTypeArguments();
+        log.info(actualTypeArguments[0].getTypeName());
     }
 }
