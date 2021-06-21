@@ -15,6 +15,12 @@ public class EnumTest {
         Sex enumConstant = enumConstants[1];
         System.out.println(enumConstant);
     }
+
+    @Test
+    void getEnumString() {
+        String name = Sex.MAN.name();
+        System.out.println(name);
+    }
 }
 
 enum Sex {
