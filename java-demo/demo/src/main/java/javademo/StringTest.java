@@ -27,4 +27,13 @@ public class StringTest {
         System.out.println(collect);
         System.out.println(collect1);
     }
+
+    @Test
+    void splitTest1() {
+        String a = "jdaslfjkl_mpCount";
+        int count = a.indexOf("_mpCount");
+        System.out.println(count);
+        String substring = a.substring(0, count);
+        System.out.println(substring);
+    }
 }
