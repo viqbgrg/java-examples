@@ -29,9 +29,9 @@ public class ClazzTest {
         }
     }
 
-    //    @Target(ElementType.FIELD)
-//    @Retention(RetentionPolicy.RUNTIME)
-//    @Documented
+    @Target(ElementType.FIELD)
+    @Retention(RetentionPolicy.RUNTIME)
+    @Documented
     @Repeatable(Keys.class)
     public @interface Key {
         String value() default "";
