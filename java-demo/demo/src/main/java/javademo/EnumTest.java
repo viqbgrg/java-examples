@@ -1,6 +1,16 @@
 package javademo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+enum Order {
+    ONE, TWO, THREE;
+}
 
 /**
  * @author viqbg
@@ -21,6 +31,21 @@ public class EnumTest {
         String name = Sex.MAN.name();
         System.out.println(name);
     }
+
+    @Test
+    void sort() {
+        List<OrderClazz> orders = new ArrayList<>();
+        orders.add(new OrderClazz(Order.THREE));
+        orders.add(new OrderClazz(Order.TWO));
+        orders.add(new OrderClazz(Order.ONE));
+        orders.stream().sorted(Comparator.comparing(OrderClazz::getOrder)).forEach(item -> System.out.println(item));
+    }
+}
+
+@Data
+@AllArgsConstructor
+class OrderClazz {
+    private Order order;
 }
 
 enum Sex {
@@ -28,6 +53,7 @@ enum Sex {
     WOMAN(2, "女");
     private int code;
     private String sexType;
+
     Sex(int code, String sexType) {
         this.code = code;
         this.sexType = sexType;
@@ -35,7 +61,6 @@ enum Sex {
     Sex(int code) {
         this.code = code;
     }
-
     @Override
     public String toString() {
         return sexType;
