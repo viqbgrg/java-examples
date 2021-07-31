@@ -48,6 +48,10 @@ public class UnboundMethodReference1 {
     @Test
     void test1() {
         Test2 test2 = YY::show;
+        YY yy = new YY(1);
+        YY yy1 = new YY(2);
+        int execute = test2.execute(yy, yy1);
+        System.out.println(execute);
 
     }
 }
