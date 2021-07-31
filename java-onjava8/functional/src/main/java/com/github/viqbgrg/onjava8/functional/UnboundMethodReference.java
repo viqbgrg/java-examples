@@ -1,5 +1,8 @@
 package com.github.viqbgrg.onjava8.functional;
 
+import java.util.function.BiPredicate;
+import java.util.function.Function;
+
 /**
  * @author bing
  */
@@ -19,5 +22,7 @@ public class UnboundMethodReference {
         X x = new X();
         System.out.println(sp.transform(x));
         System.out.println(x.f());
+        BiPredicate<String, String> b = String::equals;
+        b.test("abc", "abcd");
     }
 }
