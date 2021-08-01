@@ -23,7 +23,7 @@ class YY {
     }
 
     int show(YY yy){
-        System.out.printf("this = ", this.a);
+        System.out.println("this = " + this.a);
         System.out.println("yy.a = " + yy.a);
         return this.a + yy.a;
     }
@@ -52,6 +52,5 @@ public class UnboundMethodReference1 {
         YY yy1 = new YY(2);
         int execute = test2.execute(yy, yy1);
         System.out.println(execute);
-
     }
 }
