@@ -11,7 +11,7 @@ public class URLEncodeDemo {
     public void test() {
         String url = "https://www.baidu.com/a b/a c";
         String encode = URLEncoder.encode(url, Charset.defaultCharset());
-        encode = encode.replaceAll("%3A", ":").replaceAll("%2F", "/").replaceAll("\\+", "%20");
+        encode = encode.replaceAll("%3A", ":").replaceAll("%2F", "/").replaceAll("%25", "%").replaceAll("\\+", "%20");
         System.out.println(encode);
     }
 }
