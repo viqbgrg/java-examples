@@ -1,7 +1,10 @@
 package com.github.viqbgrg.onjava8.functional;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.function.BiPredicate;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * @author bing
@@ -24,5 +27,12 @@ public class UnboundMethodReference {
         System.out.println(x.f());
         BiPredicate<String, String> b = String::equals;
         b.test("abc", "abcd");
+    }
+
+    @Test
+    void predicate() {
+        Predicate<String> p = String::isEmpty;
+        boolean test = p.test("");
+        System.out.println(test);
     }
 }
