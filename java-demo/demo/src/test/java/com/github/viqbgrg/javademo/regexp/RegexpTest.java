@@ -33,4 +33,31 @@ public class RegexpTest {
             System.out.println(group);
         }
     }
+
+    @Test
+    void test2() {
+        Pattern movieNamePattern = Pattern.compile("^(.*)\\s?(\\(([0-9]{4})\\))\\s?(\\[((tmdbid=(.*))|(imdbid=(.*)))\\])?");
+        String s = "暗夜博士：莫比亚斯 (2022)";
+        String s1 = "暗夜博士：莫比亚斯 (2022) [tmdbid=111111]";
+        String s2 = "暗夜博士：莫比亚斯 (2022) [imdbid=222222]";
+        Matcher matcher = movieNamePattern.matcher(s2);
+        if (matcher.find()) {
+            String group1 = matcher.group(1);
+            System.out.println(group1);
+            String group2 = matcher.group(2);
+            System.out.println(group2);
+            String group3 = matcher.group(3);
+            System.out.println(group3);
+            String group4 = matcher.group(4);
+            System.out.println(group4);
+            String group5 = matcher.group(5);
+            System.out.println(group5);
+            String group6 = matcher.group(6);
+            System.out.println(group6);
+            String group7 = matcher.group(7);
+            System.out.println(group7);
+            String group9 = matcher.group(9);
+            System.out.println(group9);
+        }
+    }
 }
