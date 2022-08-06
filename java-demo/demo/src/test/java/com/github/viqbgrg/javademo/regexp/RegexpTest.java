@@ -36,11 +36,12 @@ public class RegexpTest {
 
     @Test
     void test2() {
-        Pattern movieNamePattern = Pattern.compile("^(.*)\\s?(\\(([0-9]{4})\\))\\s?(\\[((tmdbid=(.*))|(imdbid=(.*)))\\])?");
+        Pattern movieNamePattern = Pattern.compile("^(.*)( \\(([0-9]{4})\\))\\s?(\\[((tmdbid=(.*))|(imdbid=(.*)))\\])?");
         String s = "暗夜博士：莫比亚斯 (2022)";
         String s1 = "暗夜博士：莫比亚斯 (2022) [tmdbid=111111]";
         String s2 = "暗夜博士：莫比亚斯 (2022) [imdbid=222222]";
-        Matcher matcher = movieNamePattern.matcher(s2);
+        String s3 = "狙击手 (2022)";
+        Matcher matcher = movieNamePattern.matcher(s3);
         if (matcher.find()) {
             String group1 = matcher.group(1);
             System.out.println(group1);
