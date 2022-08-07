@@ -12,7 +12,7 @@ public class VarargsTest {
     @Test
     public void test() {
         // 不能为空
-        test1(null);
+        test1("a");
     }
 
     private String test1(String... a) {
