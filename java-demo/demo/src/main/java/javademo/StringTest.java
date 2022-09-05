@@ -36,4 +36,10 @@ public class StringTest {
         String substring = a.substring(0, count);
         System.out.println(substring);
     }
+
+    @Test
+    void stringLength() {
+        String a = "[CXRAW][ウルトラギャラクシーファイト ニュージェネレーションヒーローズ][ウルトラギャラクシーファイト ニュージェネレーションヒーローズ-YouTube配信版本編][BDrip][1080p][HEVC Ma10p FLAC MKV]";
+        System.out.println(a.getBytes().length);
+    }
 }
