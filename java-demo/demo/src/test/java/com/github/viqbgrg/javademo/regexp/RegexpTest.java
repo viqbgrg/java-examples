@@ -61,4 +61,20 @@ public class RegexpTest {
             System.out.println(group9);
         }
     }
+
+    @Test
+    void test3() {
+        String tmdb = "105248-cyberpunk-edgerunners";
+        Integer tmdbId = null;
+        try {
+            tmdbId = tmdb != null ? Integer.valueOf(tmdb) : null;
+        } catch (NumberFormatException e) {
+            Pattern pattern = Pattern.compile("([0-9]+).*");
+            Matcher isNum = pattern.matcher(tmdb);
+            if (isNum.matches()) {
+                tmdbId = Integer.valueOf(isNum.group(1));
+            }
+        }
+        System.out.println(tmdbId);
+    }
 }
