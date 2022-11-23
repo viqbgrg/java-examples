@@ -77,4 +77,17 @@ public class RegexpTest {
         }
         System.out.println(tmdbId);
     }
+
+    @Test
+    void test4() {
+        String name = "[hktv8.com]皆大歡喜_時裝版 EP337更多资源-XH1080.com.mp4";
+        Integer season = null;
+
+        Pattern pattern = Pattern.compile("[^0-9]?([0-9]{1,3})[^0-9]?");
+        Matcher isNum = pattern.matcher(name);
+        if (isNum.find()) {
+            season = Integer.valueOf(isNum.group(1));
+        }
+        System.out.println(season);
+    }
 }
