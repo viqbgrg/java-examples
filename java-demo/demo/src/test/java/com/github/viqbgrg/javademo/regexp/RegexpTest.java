@@ -90,4 +90,15 @@ public class RegexpTest {
         }
         System.out.println(season);
     }
+
+    @Test
+    void test5() {
+        String name = "a=\"aaa bb\" b=\"cc dd\"";
+        Pattern pattern = Pattern.compile("a=\"([^\"]*)\"");
+        Matcher a = pattern.matcher(name);
+        if (a.find()) {
+            String group = a.group(1);
+            System.out.println(group);
+        }
+    }
 }
