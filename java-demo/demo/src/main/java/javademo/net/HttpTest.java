@@ -58,11 +58,20 @@ public class HttpTest {
                 System.out.println(line);
             }
             //code to read the post payload data
-            StringBuilder payload = new StringBuilder();
-            while (bufferedReader.ready()) {
-                payload.append((char) bufferedReader.read());
+            StringBuilder payload = new StringBuilder(8096);
+            boolean loop = true;
+            while (loop) {
+                if (bufferedReader.ready()) {
+                    int i = 0;
+                    while (i != -1) {
+                        i = bufferedReader.read();
+                        System.out.println(i);
+                        payload.append((char) i);
+                    }
+                    loop = false;
+                }
             }
-            System.out.println("Payload data is: " + payload.toString());
+            System.out.println("Payload data is: " + payload);
             bufferedReader.close();
             bufferedWriter.close();
         } catch (UnknownHostException e) {
@@ -84,42 +93,6 @@ public class HttpTest {
             b[i] = (byte) (Integer.parseInt(str[i], 10));
         }
         HttpsURLConnection httpUrlConn = (HttpsURLConnection) myURL.openConnection();
-        httpUrlConn.setSSLSocketFactory(new SSLSocketFactory() {
-            @Override
-            public String[] getDefaultCipherSuites() {
-                return new String[0];
-            }
-
-            @Override
-            public String[] getSupportedCipherSuites() {
-                return new String[0];
-            }
-
-            @Override
-            public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
-                return null;
-            }
-
-            @Override
-            public Socket createSocket(String host, int port) throws IOException, UnknownHostException {
-                return null;
-            }
-
-            @Override
-            public Socket createSocket(String host, int port, InetAddress localHost, int localPort) throws IOException, UnknownHostException {
-                return null;
-            }
-
-            @Override
-            public Socket createSocket(InetAddress host, int port) throws IOException {
-                return null;
-            }
-
-            @Override
-            public Socket createSocket(InetAddress address, int port, InetAddress localAddress, int localPort) throws IOException {
-                return null;
-            }
-        });
         httpUrlConn.setRequestMethod("GET");
         httpUrlConn.setDoOutput(true);
         httpUrlConn.setConnectTimeout(2000);
