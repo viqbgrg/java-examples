@@ -25,6 +25,18 @@ public class ReplaceTest {
 
     @Test
     public void replaceString1() {
+        String body = "{\n" +
+                "    \"newPassword\": \"121212\",\n" +
+                "    \"oldPassword\": \"232323232\"\n" +
+                "}";
+        //body = body.replaceAll("\"newPassword\":\"([^\"\n]*)\".", "******");
+        body = body.replaceAll("(?<=\"[oldPassword]\":\\s\")[^\"\n]*", "******");
+        System.out.println(body);
+    }
+
+
+    @Test
+    public void replaceString2() {
         String s = "the quick brown fox jumps over the lazy dog.";
         String r = s.replaceAll("\\s([a-z]{4})\\s", " <b>$1</b> ");
         System.out.println(r);
