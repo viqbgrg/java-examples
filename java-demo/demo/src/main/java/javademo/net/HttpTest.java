@@ -12,7 +12,7 @@ import java.util.List;
 public class HttpTest {
 
     @Test
-    public void http() {
+    public void tcp() {
         long l = System.currentTimeMillis();
         try (Socket socket = new Socket()) {
             socket.connect(new InetSocketAddress("39.156.66.10", 443), 2000);
@@ -21,6 +21,36 @@ public class HttpTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    public void http() {
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress("129.146.240.20", 10244), 2000);
+            InputStream inputStream = socket.getInputStream();
+            OutputStream outputStream = socket.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
+            bufferedWriter.write("GET / HTTP/1.1\r\n");
+            bufferedWriter.write("Host: 129.146.240.20\r\n");
+            bufferedWriter.write("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\r\n");
+            bufferedWriter.write("\r\n");
+            bufferedWriter.flush();
+            BufferedInputStream streamReader = new BufferedInputStream(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(streamReader, "utf-8"));
+            String line = null;
+            while ((line = bufferedReader.readLine()).length() != 0) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void url() throws IOException {
+        URL url = new URL("");
+        Object content = url.getContent();
+        System.out.println(content.toString());
     }
 
     private static String readAsString(final InputStream inputStream) throws IOException {
@@ -65,7 +95,6 @@ public class HttpTest {
                     int i = 0;
                     while (i != -1) {
                         i = bufferedReader.read();
-                        System.out.println(i);
                         payload.append((char) i);
                     }
                     loop = false;
