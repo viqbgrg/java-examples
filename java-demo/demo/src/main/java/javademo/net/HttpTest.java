@@ -32,6 +32,7 @@ public class HttpTest {
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
             bufferedWriter.write("GET / HTTP/1.1\r\n");
             bufferedWriter.write("Host: 129.146.240.20\r\n");
+            //bufferedWriter.write("Connection: close\r\n");
             bufferedWriter.write("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\r\n");
             bufferedWriter.write("\r\n");
             bufferedWriter.flush();
