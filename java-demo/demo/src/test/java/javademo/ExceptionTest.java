@@ -1,7 +1,7 @@
 package javademo;
 
-import javademo.exception.AException;
-import javademo.exception.BException;
+import com.github.viqbgrg.javademo.exception.AException;
+import com.github.viqbgrg.javademo.exception.BException;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;

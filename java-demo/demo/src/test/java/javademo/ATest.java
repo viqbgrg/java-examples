@@ -1,5 +1,6 @@
 package javademo;
 
+import com.github.viqbgrg.javademo.A;
 import org.junit.jupiter.api.Test;
 
 public class ATest {
