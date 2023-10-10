@@ -34,4 +34,18 @@ public class ClazzNameTest {
         String s = buffer.toString();
         log.info(s);
     }
+
+    @Test
+    void stringInt() {
+        String a = "aaaa";
+        String b = new String("aaaa");
+        Integer c = 100;
+        Integer d = 300;
+        Integer e = 100;
+        Integer f = 300;
+        System.out.println(d == f);
+        System.out.println(a == "aaaa");
+        System.out.println(c == e);
+        System.out.println(b == "aaaa");
+    }
 }
